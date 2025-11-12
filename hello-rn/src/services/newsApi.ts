@@ -2,8 +2,7 @@ import axios from 'axios';
 import { Article } from '../types/news';
 import {API_KEY} from '@env'
 
-const KEY = 'API_KEY';
-const BASE_URL = API_KEY;
+const BASE_URL = 'https://newsapi.org/v2';
 
 export const getTopHeadlines = async (): Promise<Article[]> => {
   try {
