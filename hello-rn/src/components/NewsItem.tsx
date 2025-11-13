@@ -1,6 +1,8 @@
 import React from 'react';
-import { View, Text, Image, StyleSheet, TouchableOpacity } from 'react-native';
+import { StyleSheet } from 'react-native';
 import { Article } from '../types/news';
+
+import { Card, Text } from 'react-native-paper';
 
 interface Props {
   article: Article;
@@ -9,26 +11,32 @@ interface Props {
 
 const NewsItem: React.FC<Props> = ({ article, onPress }) => {
   return (
-    <TouchableOpacity style={styles.container} onPress={onPress}>
+    <Card style={styles.container} onPress={onPress}>
       {article.urlToImage && (
-        <Image source={{ uri: article.urlToImage }} style={styles.image} />
+        <Card.Cover source={{ uri: article.urlToImage }} />
       )}
-      <View style={styles.textContainer}>
-        <Text style={styles.title}>{article.title}</Text>
-        <Text style={styles.description} numberOfLines={2}>
+      <Card.Content>
+        <Text variant="titleMedium" style={styles.title}>{article.title}</Text>
+        <Text variant="bodyMedium" numberOfLines={2} style={styles.description}>
           {article.description}
         </Text>
-      </View>
-    </TouchableOpacity>
+      </Card.Content>
+    </Card>
   );
 };
 
 const styles = StyleSheet.create({
-  container: { flexDirection: 'row', marginVertical: 8 },
-  image: { width: 100, height: 100, borderRadius: 8 },
-  textContainer: { flex: 1, marginLeft: 10 },
-  title: { fontWeight: 'bold', fontSize: 16 },
-  description: { color: '#555' },
+  container: { 
+    marginVertical: 8,
+    marginHorizontal: 10,
+  },
+  title: {
+    fontWeight: 'bold',
+    marginTop: 12,
+  },
+  description: { 
+    marginTop: 4,
+  },
 });
 
 export default NewsItem;

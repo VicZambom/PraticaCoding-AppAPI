@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import { View, FlatList, ActivityIndicator, StyleSheet } from 'react-native';
+import { View, FlatList, StyleSheet } from 'react-native';
 import { Article } from '../types/news';
 import { getTopHeadlines } from '../services/newsApi';
 import NewsItem from '../components/NewsItem';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { RootStackParamList } from '../../App';
+
+import { ActivityIndicator } from 'react-native-paper';
 
 type Props = {
   navigation: NativeStackNavigationProp<RootStackParamList, 'Home'>;
