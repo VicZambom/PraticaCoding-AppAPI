@@ -1,10 +1,10 @@
 import React from 'react';
 import { View, Text, Image, StyleSheet, ScrollView, Linking } from 'react-native';
 import { RouteProp } from '@react-navigation/native';
-import { Article } from '../types/news';
+import { RootStackParamList } from '../../App';
 
 type Props = {
-  route: RouteProp<{ params: { article: Article } }, 'params'>;
+  route: RouteProp<RootStackParamList, 'Details'>;
 };
 
 const DetailsScreen: React.FC<Props> = ({ route }) => {

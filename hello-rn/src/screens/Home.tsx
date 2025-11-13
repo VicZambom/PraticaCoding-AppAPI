@@ -4,9 +4,10 @@ import { Article } from '../types/news';
 import { getTopHeadlines } from '../services/newsApi';
 import NewsItem from '../components/NewsItem';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
+import { RootStackParamList } from '../../App';
 
 type Props = {
-  navigation: NativeStackNavigationProp<any>;
+  navigation: NativeStackNavigationProp<RootStackParamList, 'Home'>;
 };
 
 const HomeScreen: React.FC<Props> = ({ navigation }) => {
